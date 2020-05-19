@@ -1,0 +1,68 @@
+<!--
+ * @Description: v_chenjiawei@baidu.com
+ * @Version: 
+ * @Autor: cjw
+ * @Date: 2020-05-19 11:53:11
+ * @LastEditors: cjw
+ * @LastEditTime: 2020-05-19 13:11:26
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=no,viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no">
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    .mask {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        color: #fff;
+        font-size: 15px;
+        display: none;
+        z-index: 9999;
+        background-color: #000;
+    }
+    .mask p {
+        position: absolute;
+        top: 45%;
+        left: 35%;
+    }
+    </style>
+</head>
+<body>
+    <div class='mask'>
+        <p>请将手机横屏观看</p>
+    </div>
+    <video id="myVideo" style="width: 100%;height: 100%;" autoplay controls src="https://ugcbsy.qq.com/uwMROfz2r57AoaQXGdGnC2deB3dYv4oNCBdVbCXSmvjDwMX6/szg_65430977_50001_731f46d8d7f444639fc6bab6bb5308cc.f622.mp4?sdtfrom=v1010&guid=d72ce902ecbd32e5bf1c32338f2b21dc&vkey=E36C0BC802C80CB22876C6DA1A47AEC732A64F38F3C128BC1FBC9C00D086FFC24D7F8664EC9CEFC1D8BF98B5412952DDDC843260AFDB350D18B54D8389AC7E03372EB5C152D6CC2672CCCB24F829B2C4C15E9BA9FC10E7D3A68423BB45BF811B1CB77F863C063EBF5E0C0F7C263722D1A08EE20586B1B6EE3D2F12D36DE10D4Chttps://ugcbsy.qq.com/uwMROfz2r57AoaQXGdGnC2deB3dYv4oNCBdVbCXSmvjDwMX6/szg_65430977_50001_731f46d8d7f444639fc6bab6bb5308cc.f622.mp4?sdtfrom=v1010&guid=d72ce902ecbd32e5bf1c32338f2b21dc&vkey=E36C0BC802C80CB22876C6DA1A47AEC732A64F38F3C128BC1FBC9C00D086FFC24D7F8664EC9CEFC1D8BF98B5412952DDDC843260AFDB350D18B54D8389AC7E03372EB5C152D6CC2672CCCB24F829B2C4C15E9BA9FC10E7D3A68423BB45BF811B1CB77F863C063EBF5E0C0F7C263722D1A08EE20586B1B6EE3D2F12D36DE10D4C"></video>
+    <script>
+    window.innerWidth < window.innerHeight ? shu() : heng();
+    var myVideo = document.getElementById('myVideo')
+    // 判断手机横竖屏状态：
+    window.addEventListener('onorientationchange' in window ? 'orientationchange' : 'resize', function () {
+        if (window.orientation === 180 || window.orientation === 0) {
+           shu();
+           myVideo.pause();
+        }
+        if (window.orientation === 90 || window.orientation === -90) {
+            heng();
+            myVideo.play();
+        }
+
+    }, false);
+    
+    function shu() {
+        document.getElementsByClassName('mask')[0].style.display = 'block';  
+    }
+    function heng() {
+        document.getElementsByClassName('mask')[0].style.display = 'none'; 
+    }
+    </script>
+</body>
+</html>
